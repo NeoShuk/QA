@@ -1,30 +1,47 @@
 public class Main {
     public static void main(String[] args) {
-        Employee employeeTest = new Employee("Ivan Ivanov", "Engineer", "ivanov@example.com", "123-456-7890", 50000, 30);
-        employeeTest.printInfo();
+        Dog dog = new Dog("Дарик");
+        Cat peanut = new Cat("Орешек");
+
+        dog.run(150);
+        dog.swim(15);
+
+        peanut.run(150);
+        peanut.swim(5);
+
+        Cat[] cats = {new Cat("Элвис"), new Cat("Сати"), new Cat("Бина")};
+        Bowl bowl = new Bowl(10);
+
+        for (Cat cat : cats) {
+            cat.eat(bowl, 5);
+        }
+
+        for (Cat cat : cats) {
+            System.out.println(cat.name + " сытость: " + cat.isSatiety());
+        }
+
+        bowl.addFood(10);
+
+        for (Cat cat : cats) {
+            if (!cat.isSatiety()) {
+                cat.eat(bowl, 10);
+                System.out.println(cat.name + " сытость: " + cat.isSatiety());
+            }
+        }
+        System.out.println("Всего животных: " + Animal.getAnimalCount());
+        System.out.println("Всего собак: " + Dog.getDogCount());
+        System.out.println("Всего котов: " + Cat.getCatCount());
+
         System.out.println();
 
-        Employee[] employees = new Employee[5];
-        employees[0] = new Employee("Ivanov Sergey", "Engineer", "ivivan@mailbox.com", "892312312", 30000, 30);
-        employees[1] = new Employee("Petrov Petr", "Manager", "petrov@mailbox.com", "892312313", 40000, 40);
-        employees[2] = new Employee("Sidorov Ivan", "Director", "sidorov@mailbox.com", "892312314", 50000, 50);
-        employees[3] = new Employee("Smirnov Ivan", "Developer", "smirnov@mailbox.com", "892312315", 35000, 28);
-        employees[4] = new Employee("Kuznetsov Alexey", "Analyst", "kuznetsov@mailbox.com", "892312316", 45000, 35);
+        Shape circle = new Circle(5, "Красный", "Синий");
+        Shape rectangle = new Rectangle(4, 6, "Зеленый", "Желтый");
+        Shape triangle = new Triangle(3, 4, 5, "Фиолетовый", "Белый");
 
-        for (Employee employee : employees) {
-            employee.printInfo();
-            System.out.println();
-        }
-
-        Park park = new Park();
-        Park.Attraction[] attractions = new Park.Attraction[3];
-        attractions[0] = park.new Attraction("Roller Coaster", "10:00 - 18:00", 5.0);
-        attractions[1] = park.new Attraction("Ferris Wheel", "09:00 - 20:00", 3.0);
-        attractions[2] = park.new Attraction("Haunted House", "11:00 - 22:00", 6.0);
-
-        for (Park.Attraction attraction : attractions) {
-            attraction.printInfo();
-            System.out.println();
-        }
+        circle.printInfo();
+        rectangle.printInfo();
+        triangle.printInfo();
     }
 }
+
+
