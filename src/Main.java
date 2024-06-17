@@ -1,46 +1,43 @@
 public class Main {
     public static void main(String[] args) {
-        Dog dog = new Dog("Дарик");
-        Cat peanut = new Cat("Орешек");
+        String[][] arr1 = {
+                {"1", "2", "3", "4"},
+                {"5", "6", "7", "8"},
+                {"9", "10", "11", "12"},
+                {"13", "14", "15", "16"}
+        };
 
-        dog.run(150);
-        dog.swim(15);
+        String[][] arr2 = {
+                {"2", "3", "4"},
+                {"5", "6", "7", "8"},
+                {"9", "10", "11", "12"},
+                {"13", "14", "15", "16"}
+        };
 
-        peanut.run(150);
-        peanut.swim(5);
+        String[][] arr3 = {
+                {"1", "2", "3", "4"},
+                {"5", "6", "7", "8"},
+                {"9", "asd", "11", "12"},
+                {"13", "14", "15", "16"}
+        };
 
-        Cat[] cats = {new Cat("Элвис"), new Cat("Сати"), new Cat("Бина")};
-        Bowl bowl = new Bowl(10);
-
-        for (Cat cat : cats) {
-            cat.eat(bowl, 5);
+        try {
+            System.out.println("Сумма: " + ArrayChecker.arrChecking(arr1));
+        } catch (MyArraySizeException | MyArrayDataException e) {
+            System.out.println(e.getMessage());
         }
 
-        for (Cat cat : cats) {
-            System.out.println(cat.name + " сытость: " + cat.isSatiety());
+        try {
+            System.out.println("Сумма: " + ArrayChecker.arrChecking(arr2));
+        } catch (MyArraySizeException | MyArrayDataException e) {
+            System.out.println(e.getMessage());
         }
 
-        bowl.addFood(10);
-
-        for (Cat cat : cats) {
-            if (!cat.isSatiety()) {
-                cat.eat(bowl, 10);
-                System.out.println(cat.name + " сытость: " + cat.isSatiety());
-            }
+        try {
+            System.out.println("Сумма: " + ArrayChecker.arrChecking(arr3));
+        } catch (MyArraySizeException | MyArrayDataException e) {
+            System.out.println(e.getMessage());
         }
-        System.out.println("Всего животных: " + Animal.getAnimalCount());
-        System.out.println("Всего собак: " + Dog.getDogCount());
-        System.out.println("Всего котов: " + Cat.getCatCount());
-
-        System.out.println();
-
-        Shape circle = new Circle(5, "Красный", "Синий");
-        Shape rectangle = new Rectangle(4, 6, "Зеленый", "Желтый");
-        Shape triangle = new Triangle(3, 4, 5, "Фиолетовый", "Белый");
-
-        circle.printInfo();
-        rectangle.printInfo();
-        triangle.printInfo();
     }
 }
 
